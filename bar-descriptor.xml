@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<!-- 
+  Copyright (C) 2007 Ariya Hidayat (ariya@kde.org)
+  Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+
+-->
+
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+
+<!-- BlackBerry Tablet OS application descriptor file.
+
+    Specifies parameters for identifying, installing, and launching native applications on BlackBerry Tablet OS.
+
+-->
+
+    <!-- A universally unique application identifier. Must be unique across all BlackBerry Tablet OS applications.
+         Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+    <id>org.kde.pictureflow</id>
+
+    <!-- The name that is displayed in the BlackBerry Tablet OS application installer. 
+         May have multiple values for each language. See samples or xsd schema file. Optional. -->
+    <name>pictureflow</name>
+    
+    <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
+         Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
+         An updated version of application must have a versionNumber value higher than the previous version. Required. -->
+    <versionNumber>1.0.0</versionNumber>
+    <buildId>1</buildId>
+
+    <!-- Fourth digit segment of the package version. First three segments are taken from the 
+         <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
+                 
+    <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
+    <!-- <versionLabel></versionLabel> -->
+
+    <!-- Description, displayed in the BlackBerry Tablet OS application installer.
+         May have multiple values for each language. See samples or xsd schema file. Optional. -->
+    <description>Animated image show</description>
+
+    <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
+    <author>Shawn Starr</author>
+    <authorId>gYAAgG0Ek0sr6Ts1o-UVPapsSqk</authorId>
+    
+    <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
+    <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
+   
+    <initialWindow>
+        <aspectRatio>landscape</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+    </initialWindow>
+    
+    <!--  The category where the application appears. Either core.games or core.media. -->
+    <configuration id="com.qnx.qcc.toolChain.923769984" name="Default">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="x86/pictureflow-qt/o-g/pictureflow" entry="true" type="Qnx/Elf">pictureflow</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.toolChain.1204498516" name="Device-Debug">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="arm/pictureflow-qt/o.le-v7-g/pictureflow" entry="true" type="Qnx/Elf">pictureflow</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.toolChain.1919226843" name="Device-Release">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="arm/pictureflow-qt/o.le-v7/pictureflow" entry="true" type="Qnx/Elf">pictureflow</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.toolChain.1765872988" name="Simulator-Debug">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset path="x86/pictureflow-qt/o-g/pictureflow" entry="true" type="Qnx/Elf">pictureflow</asset>
+    </configuration>
+    
+    <!--  The icon for the application, which should be 86x86. -->
+    <icon>
+        <image>icon.png</image>
+    </icon>
+
+    <asset path="icon.png">icon.png</asset>
+    <asset path="pictures">pictures</asset>
+    <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
+    <!-- <splashscreen></splashscreen> -->
+    
+    <!-- Locale support -->
+    
+    <!-- Request permission to execute native code.  Required for native applications. -->
+    <permission system="true">run_native</permission>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
+
+    <!--  The permissions requested by your application. -->
+    <!--  <permission>access_shared</permission> -->
+    <!--  <permission>record_audio</permission> -->
+    <!--  <permission>read_geolocation</permission> -->
+    <!--  <permission>use_camera</permission> -->
+    <!--  <permission>access_internet</permission> -->
+    <!--  <permission>play_audio</permission> -->
+    <!--  <permission>post_notification</permission> -->
+    <!--  <permission>set_audio_volume</permission> -->
+    <!--  <permission>read_device_identifying_information</permission> -->
+
+</qnx>
