@@ -31,9 +31,17 @@
 #include <qimage.h>
 #include <qdebug.h>
 
+#define NDK_R6
+
 // BlackBerry 10 support
 #ifdef Q_OS_BLACKBERRY
+
+#ifdef NDK_R6
+#include <bb/device/Display>
+#else
 #include <bb/device/DisplayInfo>
+#endif
+
 #endif
 
 #if QT_VERSION >= 0x040000
@@ -175,8 +183,14 @@ int main( int argc, char ** argv )
   w->setSlideSize(QSize(3*dim/5, dim));
 
 #elif defined(Q_OS_BLACKBERRY)
-  // Get device information
+/ Get device information
+
+#ifdef NDK_R6
+  bb::device::Display display;
+#else
   bb::device::DisplayInfo display;
+#endif
+
   w->showFullScreen();
   int ww = display.pixelSize().width();
   int wh = display.pixelSize().height();
