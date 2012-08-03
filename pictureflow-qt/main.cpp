@@ -183,7 +183,7 @@ int main( int argc, char ** argv )
   w->setSlideSize(QSize(3*dim/5, dim));
 
 #elif defined(Q_OS_BLACKBERRY)
-/ Get device information
+// Get device information
 
 #ifdef NDK_R6
   bb::device::Display display;
